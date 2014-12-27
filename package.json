@@ -1,0 +1,29 @@
+{
+  "name": "autocompl",
+  "version": "1.0.0",
+  "description": "Wrapper for suggestqueries.google.com queries. Gets the autocomplete suggestions that the Google search bar would give you if you were typing in it.",
+  "main": "autocompl.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/autocompl.git"
+  },
+  "keywords": [
+    "autocomplete",
+    "google",
+  ],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/autocompl/issues"
+  },
+  "homepage": "https://github.com/jimkang/autocompl",
+  "devDependencies": {
+    "conform-async": "^1.1.1"
+  },
+  "dependencies": {
+    "request": "^2.51.0"
+  }
+}
