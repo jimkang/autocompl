@@ -1,6 +1,6 @@
 {
   "name": "autocompl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wrapper for suggestqueries.google.com queries. Gets the autocomplete suggestions that the Google search bar would give you if you were typing in it.",
   "main": "autocompl.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "conform-async": "^1.1.1"
   },
   "dependencies": {
+    "iconv-lite": "^0.4.5",
     "request": "^2.51.0"
   }
 }

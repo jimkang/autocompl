@@ -50,3 +50,22 @@ test('Live no results test', function testBatmanAnd(t) {
     }
   );
 });
+
+test('Unicode characters test', function testBatmanAnd(t) {
+  t.plan(3);
+
+  autocompl(
+    {
+      partialSearchTerm: 'Bayadère and'
+    },
+    function checkResults(error, suggestions) {
+      console.log(suggestions);
+      t.notOk(error, 'There is no error for this partial search term.');
+      t.ok(Array.isArray(suggestions), 'We get an array of suggestions.');
+      t.equal(
+        suggestions[0], 'bayadère and co', 
+        'The first suggestion preserves the unicode character'
+      );
+    }
+  );
+});

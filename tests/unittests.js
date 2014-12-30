@@ -1,6 +1,12 @@
 var test = require('tape');
 var conformAsync = require('conform-async');
 var autocompl = require('../autocompl');
+var iconv = require('iconv-lite');
+
+function bufferizeJSONObject(jsonObject) {
+  var jsonString = JSON.stringify(jsonObject);
+  return iconv.encode(jsonString, 'iso-8859-1');
+}
 
 test('Batman test', function testBatmanAnd(t) {
   t.plan(3);
@@ -16,7 +22,9 @@ test('Batman test', function testBatmanAnd(t) {
     {
       partialSearchTerm: 'Batman and',
       request: function mockRequest(opts, done) {
-        conformAsync.callBackOnNextTick(done, null, null, serverResponseJSON);
+        conformAsync.callBackOnNextTick(
+          done, null, null, bufferizeJSONObject(serverResponseJSON)
+        );
       }
     },
     function checkResults(error, suggestions) {
@@ -39,7 +47,9 @@ test('Malformed response', function testMalformedResponse(t) {
     {
       partialSearchTerm: 'Batman and',
       request: function mockRequest(opts, done) {
-        conformAsync.callBackOnNextTick(done, null, null, serverResponseJSON);
+        conformAsync.callBackOnNextTick(
+          done, null, null, bufferizeJSONObject(serverResponseJSON)
+        );
       }
     },
     function checkResults(error, suggestions) {
@@ -63,7 +73,7 @@ test('Error from server', function testError(t) {
       partialSearchTerm: 'Batman and',
       request: function mockRequest(opts, done) {
         conformAsync.callBackOnNextTick(
-          done, serverError, null, serverResponseJSON
+          done, serverError, null, bufferizeJSONObject(serverResponseJSON)
         );
       }
     },
