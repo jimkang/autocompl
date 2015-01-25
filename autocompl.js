@@ -20,6 +20,7 @@ function autocompl(opts, done) {
     qs: {
       q: opts.partialSearchTerm,
       client: 'firefox'
+      ds:'yt' // this makes the search from youtube search line  
     },
     // Get body back as a buffer, so that it can be properly decoded since the 
     // response is not going to be any of the native JavaScript encodings.
