@@ -19,7 +19,7 @@ function autocompl(opts, done) {
     url: 'http://suggestqueries.google.com/complete/search',
     qs: {
       q: opts.partialSearchTerm,
-      client: 'firefox'
+      client: 'firefox',
       ds:'yt' // this makes the search from youtube search line  
     },
     // Get body back as a buffer, so that it can be properly decoded since the 
